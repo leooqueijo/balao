@@ -1,0 +1,88 @@
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(#87ceeb, #e0f7ff);
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .balão {
+      position: absolute;
+      bottom: -150px;
+      width: 90px;
+      height: 110px;
+      background: #ff4757;
+      border-radius: 50% 50% 45% 45%;
+      animation: subir 6s linear infinite;
+    }
+
+    .balão::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 38px;
+      width: 15px;
+      height: 20px;
+      background: #ff4757;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+
+    .balão::before {
+      content: "";
+      position: absolute;
+      top: 108px;
+      left: 44px;
+      width: 2px;
+      height: 80px;
+      background: #555;
+    }
+
+       @keyframes subir {
+      0% {
+        transform: translateY(0) translateX(0) rotate(-5deg);
+      }
+
+      25% {
+        transform: translateY(-25vh) translateX(30px) rotate(5deg);
+      }
+
+      50% {
+        transform: translateY(-50vh) translateX(-30px) rotate(-5deg);
+      }
+
+      75% {
+        transform: translateY(-75vh) translateX(25px) rotate(5deg);
+      }
+
+      100% {
+        transform: translateY(-120vh) translateX(-20px) rotate(-5deg);
+      }
+    }
+
+    button {
+      position: fixed;
+      bottom: 30px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      background: #2f3542;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    button:hover {
+      background: #57606f;
+    }
+
+    .pausado {
+      animation-play-state: paused;
+    }
